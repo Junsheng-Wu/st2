@@ -1,4 +1,5 @@
 # Don't edit this file. It's generated automatically!
+gitdb<=0.6.4
 apscheduler==3.4.0
 argcomplete
 bcrypt

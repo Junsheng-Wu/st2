@@ -1,0 +1,30 @@
+---
+  chain:
+    -
+      name: "download pack"
+      ref: "packs.download"
+      parameters:
+        packs: "{{packs}}"
+        force: "{{force}}"
+      on-success: "make a prerun"
+    -
+      name: "make a prerun"
+      ref: "packs.virtualenv_prerun"
+      parameters:
+        packs_status: "{{ __results['download pack'].result }}"
+      on-success: "install pack dependencies"
+    -
+      name: "install pack dependencies"
+      ref: "packs.setup_virtualenv"
+      parameters:
+        packs: "{{ __results['make a prerun'].result }}"
+        env: "{{env}}"
+      on-success: "register pack"
+    -
+      name: "register pack"
+      ref: "packs.load"
+      parameters:
+        register: "{{register}}"
+        packs: "{{ __results['make a prerun'].result }}"
+
+  default: "download pack"

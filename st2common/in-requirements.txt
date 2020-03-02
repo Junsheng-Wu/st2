@@ -1,0 +1,29 @@
+# Remeber to list implicit packages here, otherwise version won't be fixated!
+apscheduler
+python-dateutil
+eventlet
+# used by eventlet
+greenlet
+jinja2
+jsonschema
+kombu
+mongoengine
+networkx
+oslo.config
+paramiko
+pyyaml
+pymongo
+python-keyczar
+requests
+retrying
+semver
+six
+tooz
+# Required by tooz - on new versions of tooz, all the backend dependencies need
+# to be installed manually
+zake
+ipaddr
+routes
+flex
+webob
+jsonpath-rw
